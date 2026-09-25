@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mur des Vainqueurs - Challenge VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        h1 { font-size: 24px; margin-bottom: 8px; color: #f8fafc; font-weight: 600; text-align: center; }
+        p.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 30px; text-align: center; }
+        
+        .historique-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .historique-item {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 15px;
+        }
+        .btn-retour {
+            background: #f97316;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+        .btn-retour:hover { background: #ea580c; transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fas fa-trophy" style="color: #facc15;"></i> Mur des Vainqueurs</h1>
+    <p class="subtitle">Retrouvez ici les joueurs qui ont atteint les sommets !</p>
+
+    <div class="historique-container" id="liste-historique">
+        <!-- Vide par défaut -->
+    </div>
+
+    <a href="dashboard_principal.html" class="btn-retour">
+        <i class="fas fa-arrow-left"></i> Retour au tableau de bord
+    </a>
+
+    <script>
+        function chargerHistorique() {
+            // On vide complètement le localStorage de l'historique par défaut
+            localStorage.removeItem('challenge_vip_historique');
+
+            const conteneur = document.getElementById('liste-historique');
+            conteneur.innerHTML = `<div class="historique-item"><i class="fas fa-info-circle"></i> Aucun vainqueur ou historique pour le moment.</div>`;
+        }
+        chargerHistorique();
+    </script>
+</body>
+</html>
